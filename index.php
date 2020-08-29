@@ -7,10 +7,10 @@
 require_once 'mustache/mustache/src/Mustache/Autoloader.php';
 Mustache_Autoloader::register();
 
-//this will create a new mustache template engine
+// this will create a new mustache template engine
 $mustache = new Mustache_Engine;
 
-//these lines load your header, footer, and body template into strings
+// these lines load your header, footer, and body template into strings
 $header = file_get_contents('templates/header.html');
 $body = file_get_contents('templates/home.html');
 $footer = file_get_contents('templates/footer.html');
@@ -22,13 +22,17 @@ $footer = file_get_contents('templates/footer.html');
  * and the value is inserted into the page (see the template examples).
  */
 
-//this will be used to send the page title into the page
+// this will be used to send the page title into the page
+// you can add more things to send if you like
 $header_data = ["pagetitle" => "Home Page"];
 
-//this is empty because there is no data to send to the body in this example
-$body_data = [];
+// notice this holds mixed numeric and string data,
+// you can do this in a loosly typed language like PHP
+// you can add more things to send if you like
+$body_data = ["helloworld" => "Hello World", "pi" => 3.14, "digits" => "15926535"];
 
 //this is being used to send a footer title and local time to the footer
+// you can add more things to send if you like
 $footer_data = [
     "localtime" => date('l jS \of F Y h:i:s A'),
     "footertitle" => "Home Page"];
